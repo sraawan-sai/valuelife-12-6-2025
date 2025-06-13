@@ -2177,15 +2177,15 @@ export default {
  * @returns Promise<boolean> - true if available, false if occupied
  */
 export const isNetworkPositionAvailable = async (
-  sponsorId: string,
+  sponsorId: string,//this should be id not distributorId
   position: 'left' | 'right',
   isReferral: boolean = false
 ): Promise<boolean> => {
   // Try to get the sponsor's network from API or localStorage
-  const sponsorNetworkKey = `mlm_network_members_${sponsorId}`;
+  const sponsorNetworkKey = `mlm_network_members_${sponsorId}`;//this should be id not distributorId
   let sponsorNetwork: NetworkMember | null = null;
   try {
-    sponsorNetwork = await apiCall('get', `/api/db/network/${sponsorId}`);
+    sponsorNetwork = await apiCall('get', `/api/db/network/${sponsorId}`);//this should be id not distributorId
   } catch (e) {
     sponsorNetwork = getFromStorage<NetworkMember>(sponsorNetworkKey);
   }

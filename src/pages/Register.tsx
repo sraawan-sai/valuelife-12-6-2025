@@ -264,7 +264,7 @@ const Register: React.FC = () => {
         }
 
         // Verify the position is still available
-        const available = await isNetworkPositionAvailable(sponsor.distributorId, position, true);
+        const available = await isNetworkPositionAvailable(sponsor.id, position, true);
         if (!available) {
           setPopupMessage(`The ${position} position under referrer ${sponsor.name} is already occupied. Please select the other position.`);
           setIsLoading(false);

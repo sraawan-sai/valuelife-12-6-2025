@@ -233,7 +233,7 @@ const Register: React.FC = () => {
         );
         position = sponsorPosition;
         if (sponsor && position) {
-          const available = await isNetworkPositionAvailable(sponsor.distributorId, position, false);
+          const available = await isNetworkPositionAvailable(sponsor.id, position, false);
           if (!available) {
             setPopupMessage(`The ${position} position under sponsor ${sponsor.name} is already occupied. Please choose another position or sponsor.`);
             setIsLoading(false);

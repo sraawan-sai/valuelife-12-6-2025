@@ -107,8 +107,12 @@ const Register: React.FC = () => {
           setReferrer(foundReferrer);
           setErrors(prev => { const newErrors = { ...prev }; delete newErrors.manualReferralCode; return newErrors; });
           // Check if left/right is available
-          const left = await isNetworkPositionAvailable(foundReferrer.distributorId, 'left', true);
-          const right = await isNetworkPositionAvailable(foundReferrer.distributorId, 'right', true);
+          // const left = await isNetworkPositionAvailable(foundReferrer.distributorId, 'left', true);
+          // const right = await isNetworkPositionAvailable(foundReferrer.distributorId, 'right', true);
+
+          const left = await isNetworkPositionAvailable(foundReferrer.id, 'left', true);
+          const right = await isNetworkPositionAvailable(foundReferrer.id, 'right', true);
+          
           setLeftAvailable(left);
           setRightAvailable(right);
           if (!left && !right) {
